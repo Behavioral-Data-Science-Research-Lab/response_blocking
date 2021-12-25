@@ -1,0 +1,33 @@
+﻿<Properties StartupConfiguration="{00EFDA39-E606-458E-ABBC-AC4B0FD8CCAF}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="RazorPagesMovie/appsettings.json">
+    <Files>
+      <File FileName="RazorPagesMovie/Program.cs" Line="26" Column="2" />
+      <File FileName="RazorPagesMovie/Pages/Index.cshtml" Line="1" Column="1" />
+      <File FileName="RazorPagesMovie/Pages/Movie.cs" Line="16" Column="2" />
+      <File FileName="RazorPagesMovie/appsettings.json" Line="11" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="RazorPagesMovie" expanded="True">
+            <Node name="RazorPagesMovie" expanded="True">
+              <Node name="Pages" expanded="True" />
+              <Node name="wwwroot" expanded="True" />
+              <Node name="appsettings.json" expanded="True" selected="True" />
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.Debugger.WatchPad">
+        <State />
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.ItemProperties.RazorPagesMovie PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
