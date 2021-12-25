@@ -1,0 +1,32 @@
+﻿<Properties StartupConfiguration="{610B5321-5832-421E-9D30-D55EFA4ADBB0}|Default">
+  <MonoDevelop.Ide.Workbench ActiveDocument="vs_resp_blk/Pages/Shared/_Layout.cshtml">
+    <Files>
+      <File FileName="vs_resp_blk/Pages/Shared/_Layout.cshtml" Line="45" Column="76" />
+      <File FileName="vs_resp_blk/Pages/Index.cshtml" Line="11" Column="1" />
+      <File FileName="vs_resp_blk/Pages/Privacy.cshtml" Line="9" Column="1" />
+      <File FileName="vs_resp_blk/Program.cs" Line="27" Column="1" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="vs_resp_blk" expanded="True">
+            <Node name="vs_resp_blk" expanded="True">
+              <Node name="Pages" expanded="True">
+                <Node name="Shared" expanded="True">
+                  <Node name="_Layout.cshtml" selected="True" />
+                </Node>
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.ItemProperties.vs__resp__blk PreferredExecutionTarget="/Applications/Google Chrome.app" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MultiItemStartupConfigurations />
+</Properties>
