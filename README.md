@@ -1,2 +1,2 @@
 # response_blocking
-Human operant study on response blocking with Ben Witts
+This is the repository to store the main code for creating a human operant experiment on response blocking. This #README will continuously be updated as the project progresses. 
