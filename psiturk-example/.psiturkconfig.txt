@@ -1,0 +1,3 @@
+[AWS Access]
+aws_access_key_id = AKIAR2KXEC7WPMM3CXPM
+aws_secret_access_key = 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
