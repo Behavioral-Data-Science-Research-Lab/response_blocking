@@ -1,0 +1,199 @@
+2021-12-27 15:02:29,179 Scheduler started
+[2021-12-27 15:02:29 -0500] [35602] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: table apscheduler_jobs already exists
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/gunicorn/workers/ggevent.py", line 162, in init_process
+    super().init_process()
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/gunicorn/workers/base.py", line 119, in init_process
+    self.load_wsgi()
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/gunicorn/workers/base.py", line 144, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/psiturk/experiment_server.py", line 68, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/gunicorn/util.py", line 358, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/psiturk/experiment.py", line 119, in <module>
+    scheduler.start(paused=True)
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/apscheduler/schedulers/gevent.py", line 21, in start
+    BaseScheduler.start(self, *args, **kwargs)
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/apscheduler/schedulers/base.py", line 158, in start
+    store.start(self, alias)
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/apscheduler/jobstores/sqlalchemy.py", line 68, in start
+    self.jobs_t.create(self.engine, True)
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/sql/schema.py", line 925, in create
+    bind._run_visitor(ddl.SchemaGenerator, self, checkfirst=checkfirst)
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2095, in _run_visitor
+    conn._run_visitor(visitorcallable, element, **kwargs)
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1656, in _run_visitor
+    visitorcallable(self.dialect, self, **kwargs).traverse_single(element)
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/sql/visitors.py", line 145, in traverse_single
+    return meth(obj, **kw)
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/sql/ddl.py", line 827, in visit_table
+    self.connection.execute(
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/sql/ddl.py", line 72, in _execute_on_connection
+    return connection._execute_ddl(self, multiparams, params)
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1068, in _execute_ddl
+    ret = self._execute_context(
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) table apscheduler_jobs already exists
+[SQL: 
+CREATE TABLE apscheduler_jobs (
+	id VARCHAR(191) NOT NULL, 
+	next_run_time FLOAT, 
+	job_state BLOB NOT NULL, 
+	PRIMARY KEY (id)
+)
+
+]
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+[2021-12-27 15:02:29 -0500] [35599] [ERROR] Exception in worker process
+Traceback (most recent call last):
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: table apscheduler_jobs already exists
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/gunicorn/arbiter.py", line 583, in spawn_worker
+    worker.init_process()
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/gunicorn/workers/ggevent.py", line 162, in init_process
+    super().init_process()
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/gunicorn/workers/base.py", line 119, in init_process
+    self.load_wsgi()
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/gunicorn/workers/base.py", line 144, in load_wsgi
+    self.wsgi = self.app.wsgi()
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/gunicorn/app/base.py", line 67, in wsgi
+    self.callable = self.load()
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/psiturk/experiment_server.py", line 68, in load
+    return util.import_app("psiturk.experiment:app")
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/gunicorn/util.py", line 358, in import_app
+    mod = importlib.import_module(module)
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/importlib/__init__.py", line 127, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 1014, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "<frozen importlib._bootstrap_external>", line 783, in exec_module
+  File "<frozen importlib._bootstrap>", line 219, in _call_with_frames_removed
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/psiturk/experiment.py", line 119, in <module>
+    scheduler.start(paused=True)
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/apscheduler/schedulers/gevent.py", line 21, in start
+    BaseScheduler.start(self, *args, **kwargs)
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/apscheduler/schedulers/base.py", line 158, in start
+    store.start(self, alias)
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/apscheduler/jobstores/sqlalchemy.py", line 68, in start
+    self.jobs_t.create(self.engine, True)
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/sql/schema.py", line 925, in create
+    bind._run_visitor(ddl.SchemaGenerator, self, checkfirst=checkfirst)
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 2095, in _run_visitor
+    conn._run_visitor(visitorcallable, element, **kwargs)
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1656, in _run_visitor
+    visitorcallable(self.dialect, self, **kwargs).traverse_single(element)
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/sql/visitors.py", line 145, in traverse_single
+    return meth(obj, **kw)
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/sql/ddl.py", line 827, in visit_table
+    self.connection.execute(
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1011, in execute
+    return meth(self, multiparams, params)
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/sql/ddl.py", line 72, in _execute_on_connection
+    return connection._execute_ddl(self, multiparams, params)
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1068, in _execute_ddl
+    ret = self._execute_context(
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1316, in _execute_context
+    self._handle_dbapi_exception(
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1510, in _handle_dbapi_exception
+    util.raise_(
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/util/compat.py", line 182, in raise_
+    raise exception
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/engine/base.py", line 1276, in _execute_context
+    self.dialect.do_execute(
+  File "/Users/davidjcox/opt/anaconda3/lib/python3.8/site-packages/sqlalchemy/engine/default.py", line 593, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) table apscheduler_jobs already exists
+[SQL: 
+CREATE TABLE apscheduler_jobs (
+	id VARCHAR(191) NOT NULL, 
+	next_run_time FLOAT, 
+	job_state BLOB NOT NULL, 
+	PRIMARY KEY (id)
+)
+
+]
+(Background on this error at: http://sqlalche.me/e/13/e3q8)
+2021-12-27 15:02:29,273 Scheduler started
+2021-12-27 15:02:29,373 Scheduler started
+2021-12-27 15:02:29,373 Scheduler started
+2021-12-27 15:02:29,395 Scheduler started
+2021-12-27 15:02:29,499 Scheduler started
+2021-12-27 15:02:29,618 Scheduler started
+2021-12-27 15:02:29,698 Scheduler started
+2021-12-27 15:02:29,700 Scheduler started
+2021-12-27 15:02:29,702 Scheduler started
+2021-12-27 15:02:29,770 Scheduler started
+2021-12-27 15:02:29,853 Scheduler started
+2021-12-27 15:02:29,954 Scheduler started
+2021-12-27 15:02:30,053 Scheduler started
+2021-12-27 15:02:30,055 Scheduler started
+2021-12-27 15:02:30,099 Scheduler started
+2021-12-27 15:02:30,207 Scheduler started
+2021-12-27 15:02:30,276 Scheduler started
+2021-12-27 15:02:30,310 Scheduler started
+2021-12-27 15:02:30,359 Scheduler started
+2021-12-27 15:02:30,432 Scheduler started
+2021-12-27 15:02:30,446 Scheduler started
+2021-12-27 15:02:30,455 Scheduler started
+2021-12-27 15:02:30,498 Scheduler started
+2021-12-27 15:02:30,649 Scheduler started
+2021-12-27 15:02:30,649 Scheduler started
+2021-12-27 15:02:30,654 Scheduler started
+2021-12-27 15:02:30,756 Scheduler started
+2021-12-27 15:02:30,787 Scheduler started
+2021-12-27 15:02:30,914 Scheduler started
+2021-12-27 15:02:31,067 Scheduler started
+2021-12-27 15:02:31,105 Scheduler started
+2021-12-27 15:02:31,207 Scheduler started
+2021-12-27 15:02:31,238 Scheduler started
+2021-12-27 15:02:31,298 Scheduler started
+2021-12-27 15:02:31,298 Scheduler started
+2021-12-27 15:02:31,344 Scheduler started
+2021-12-27 15:02:31,372 Scheduler started
+2021-12-27 15:02:31,372 Scheduler started
+[2021-12-27 15:02:59 -0500] [35596] [CRITICAL] WORKER TIMEOUT (pid:35599)
+[2021-12-27 15:02:59 -0500] [35596] [CRITICAL] WORKER TIMEOUT (pid:35602)
+2021-12-27 15:02:59,461 Scheduler started
+2021-12-27 15:02:59,557 Scheduler started
