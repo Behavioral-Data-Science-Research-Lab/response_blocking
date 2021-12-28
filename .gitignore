@@ -1,3 +1,4 @@
 *.psiturkconfig
 *.csv
 *.env
+*.dallingerconfig
