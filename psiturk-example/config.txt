@@ -8,17 +8,17 @@
 [HIT Configuration]
 # Title that will be used for the HIT when posted to mturk
 # e.g.,
-#     title = Stroop task
+#     title = Risky Decsion-Making
 ;title =
 
 # Description that will be used for the HIT when posted to mturk
 # e.g.,
-#     description = Judge the color of a series of words.
+#     description = Choose which option you prefer. There are no right or wrong answers. 
 ;description =
 
 # Keywords for the HIT on mturk
 # e.g.,
-#     keywords = Perception, Psychology
+#     keywords = Decision-Making, Choice, Health-Behavior
 ;keywords =
 
 # How many hours a given HIT will last on mturk before becoming unavailable
